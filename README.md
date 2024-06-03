@@ -1,0 +1,5 @@
+# Browser
+
+```sh
+cargo run
+```
