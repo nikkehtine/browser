@@ -1,8 +1,14 @@
 [package]
 name = "browser"
 version = "0.1.0"
-authors = ["nikkehtine <nikkehtine@int.pl>"]
+license = "MIT"
 edition = "2021"
+authors = ["nikkehtine <nikkehtine@int.pl>"]
 
 [dependencies]
-sdl2 = "0.36.0"
+engine = { path = "engine" }
+
+[dependencies.sdl2]
+version = "0.36.0"
+default-features = false
+features = ["ttf"]

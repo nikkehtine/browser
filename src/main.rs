@@ -1,6 +1,5 @@
 use sdl2::event::Event;
 use sdl2::pixels::Color;
-use sdl2::video::Window;
 
 fn main() {
     let sdl_ctx = sdl2::init().unwrap();
@@ -16,8 +15,9 @@ fn main() {
     let mut canvas = window.into_canvas().build().unwrap();
 
     canvas.set_draw_color(Color::RGB(24, 24, 24));
-    canvas.clear();
-    canvas.present();
+
+    let mut renderer = engine::new_renderer(&sdl_ctx, &mut canvas);
+    renderer.render();
 
     let mut event_pump = sdl_ctx.event_pump().unwrap();
 
@@ -29,12 +29,10 @@ fn main() {
                     win_event: sdl2::event::WindowEvent::Resized(..),
                     ..
                 } => {
-                    canvas.clear();
-                    canvas.present();
+                    renderer.render();
                 }
                 _ => {}
             }
         }
-        canvas.present();
     }
 }
