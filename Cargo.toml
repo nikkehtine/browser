@@ -1,12 +1,12 @@
 [package]
-name = "browser"
+name = "silverfish"
 version = "0.1.0"
 license = "MIT"
 edition = "2021"
 authors = ["nikkehtine <nikkehtine@int.pl>"]
 
 [dependencies]
-engine = { path = "engine" }
+html5ever = "0.27.0"
 
 [dependencies.sdl2]
 version = "0.36.0"
